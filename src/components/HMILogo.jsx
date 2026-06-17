@@ -11,19 +11,19 @@ export default function HMILogo({ className = 'w-10 h-10', ...props }) {
     >
       {/* Red Left Band */}
       <polygon
-        points="10,90 60,90 76.5,27.5 72,10"
+        points="12.5,90 32.5,90 62.5,50 72.5,10"
         fill="#E31E24"
       />
       
       {/* Green Middle Band */}
       <polygon
-        points="60,90 77,90 83.5,58.5 76.5,27.5"
+        points="62.5,50 72.5,10 83.75,70 70,90"
         fill="#0A9646"
       />
       
       {/* Yellow Right Corner */}
       <polygon
-        points="77,90 90,90 83.5,58.5"
+        points="70,90 83.75,70 87.5,90"
         fill="#FDB813"
       />
     </svg>
