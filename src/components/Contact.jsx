@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
 
 export default function Contact() {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,6 +13,16 @@ export default function Contact() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (location.state && location.state.service) {
+      setFormData(prev => ({
+        ...prev,
+        subject: `Inquiry regarding ${location.state.service}`,
+        message: `Hi HMI Team,\n\nI am interested in your "${location.state.service}" solutions. I would love to learn more about the design options, timeline, and custom features for our project.`
+      }));
+    }
+  }, [location.state]);
 
   const validate = () => {
     const newErrors = {};
