@@ -23,7 +23,7 @@ export default function Navbar() {
     { path: '/', label: 'HOME', icon: Home },
     { path: '/services', label: 'SERVICES', icon: Briefcase },
     { path: '/portfolio', label: 'PORTFOLIO', icon: Layers },
-    { path: '/pricing', label: 'PRICING', icon: Tag },
+    // { path: '/pricing', label: 'PRICING', icon: Tag },
 
     { path: '/about', label: 'ABOUT', icon: Info },
 
@@ -33,11 +33,10 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-4 left-0 w-full z-50 px-4 transition-all duration-300">
-      <nav className={`max-w-7xl mx-auto rounded-full px-6 flex items-center justify-between transition-all duration-300 ${
-        scrolled 
-          ? 'glass-nav shadow-xl py-2' 
+      <nav className={`max-w-7xl mx-auto rounded-full px-6 flex items-center justify-between transition-all duration-300 ${scrolled
+          ? 'glass-nav shadow-xl py-2'
           : 'bg-white/35 border border-slate-200/20 py-3 shadow-none backdrop-blur-[2px]'
-      }`}>
+        }`}>
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 cursor-pointer">
