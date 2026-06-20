@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { Home, Briefcase, Layers, Tag, Calculator, Info, Users, Mail, Menu, X, FileText } from 'lucide-react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Home, Briefcase, Layers, Tag, Calculator, Info, Mail, Menu, X, FileText } from 'lucide-react';
 import NextshopLogo from './NextshopLogo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close drawer on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
   const navItems = [
     { path: '/', label: 'HOME', icon: Home },
     { path: '/services', label: 'SERVICES', icon: Briefcase },
@@ -30,76 +36,191 @@ export default function Navbar() {
     { path: '/terms', label: 'TERMS', icon: FileText },
   ];
 
+  // Items for the mobile "More Menu" horizontal scroll row
+  const moreMenuItems = [
+    { path: '/services', label: 'Services', icon: Briefcase, desc: 'Open page' },
+    { path: '/custom-app', label: 'Custom App', icon: Calculator, desc: 'Open page' },
+    { path: '/about', label: 'About', icon: Info, desc: 'Open page' },
+    { path: '/contact', label: 'Contact', icon: Mail, desc: 'Open page' },
+    { path: '/terms', label: 'Terms', icon: FileText, desc: 'Open page' },
+  ];
+
   return (
-    <div className="fixed top-6 left-0 w-full z-50 px-6 transition-all duration-300">
-      <nav className={`max-w-7xl mx-auto rounded-full px-8 flex items-center justify-between transition-all duration-300 ${scrolled
-          ? 'glass-nav shadow-xl py-3.5'
-          : 'bg-white/35 border border-slate-200/20 py-5 shadow-none backdrop-blur-[2px]'
-        }`}>
+    <>
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
 
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 cursor-pointer">
-          <NextshopLogo className="w-12 h-12 hover:scale-105 transition-transform duration-300" />
-          <span className="text-2xl font-black tracking-tight text-slate-800 flex items-center">
-            Nextshop
-          </span>
-        </Link>
+      {/* ========================================== */}
+      {/* DESKTOP HEADER BAR (Visible on xl and up) */}
+      {/* ========================================== */}
+      <div className="hidden xl:block fixed top-6 left-0 w-full z-50 px-6 transition-all duration-300">
+        <nav className={`max-w-7xl mx-auto rounded-full px-8 flex items-center justify-between transition-all duration-300 ${scrolled
+            ? 'glass-nav shadow-xl py-3.5'
+            : 'bg-white/35 border border-slate-200/20 py-5 shadow-none backdrop-blur-[2px]'
+          }`}>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden xl:flex items-center gap-1">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  `flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${isActive
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100'
-                    : 'text-slate-650 hover:text-indigo-650 hover:bg-indigo-50/50'
-                  }`
-                }
-              >
-                <Icon className="w-3.5 h-3.5" />
-                {item.label}
-              </NavLink>
-            );
-          })}
-        </div>
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 cursor-pointer">
+            <NextshopLogo className="w-12 h-12 hover:scale-105 transition-transform duration-300" />
+            <span className="text-2xl font-black tracking-tight text-slate-800 flex items-center">
+              Nextshop
+            </span>
+          </Link>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="xl:hidden p-2 rounded-full hover:bg-slate-100 text-slate-700 transition-colors"
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </nav>
+          {/* Desktop Navigation Links */}
+          <div className="flex items-center gap-1">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${isActive
+                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100'
+                      : 'text-slate-650 hover:text-indigo-650 hover:bg-indigo-50/50'
+                    }`
+                  }
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {item.label}
+                </NavLink>
+              );
+            })}
+          </div>
+        </nav>
+      </div>
 
-      {/* Mobile Drawer menu */}
-      {isOpen && (
-        <div className="xl:hidden absolute top-24 left-4 right-4 bg-white/95 backdrop-blur-lg border border-slate-200/80 rounded-3xl shadow-2xl p-6 flex flex-col gap-3 animate-in slide-in-from-top duration-300">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 w-full px-5 py-3.5 rounded-2xl text-sm font-semibold transition-all duration-205 ${isActive
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : 'text-slate-700 hover:text-indigo-655 hover:bg-indigo-50'
-                  }`
-                }
-              >
-                <Icon className="w-4.5 h-4.5" />
-                {item.label}
-              </NavLink>
-            );
-          })}
-        </div>
-      )}
-    </div>
+      {/* ========================================== */}
+      {/* MOBILE FLOATING TAB BAR (Visible below xl) */}
+      {/* ========================================== */}
+      <div className="xl:hidden fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-md z-50 transition-all duration-300">
+        
+        {/* Navigation Bar Pill */}
+        <nav className="bg-white/90 backdrop-blur-lg border border-slate-200/60 shadow-xl rounded-full py-2 px-3 flex items-center justify-between">
+          
+          {/* Home Tab */}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${
+                isActive
+                  ? 'bg-indigo-50/80 border border-indigo-200/50 text-indigo-650 shadow-sm'
+                  : 'text-slate-650 hover:text-indigo-650'
+              }`
+            }
+          >
+            <Home className="w-4 h-4" />
+            <span>Home</span>
+          </NavLink>
+
+          {/* Portfolio Tab */}
+          <NavLink
+            to="/portfolio"
+            className={({ isActive }) =>
+              `flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${
+                isActive
+                  ? 'bg-indigo-50/80 border border-indigo-200/50 text-indigo-650 shadow-sm'
+                  : 'text-slate-650 hover:text-indigo-650'
+              }`
+            }
+          >
+            <Layers className="w-4 h-4" />
+            <span>Portfolio</span>
+          </NavLink>
+
+          {/* Pricing Tab */}
+          <NavLink
+            to="/pricing"
+            className={({ isActive }) =>
+              `flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${
+                isActive
+                  ? 'bg-indigo-50/80 border border-indigo-200/50 text-indigo-650 shadow-sm'
+                  : 'text-slate-650 hover:text-indigo-650'
+              }`
+            }
+          >
+            <Tag className="w-4 h-4" />
+            <span>Pricing</span>
+          </NavLink>
+
+          {/* More Menu Toggle Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={`p-2 rounded-full transition-all duration-300 hover:bg-slate-100 flex items-center justify-center ${
+              isOpen ? 'bg-indigo-50 border border-indigo-100 text-indigo-600 scale-105' : 'text-slate-700'
+            }`}
+          >
+            {isOpen ? (
+              /* Custom dynamic matching dynamic ||| icon */
+              <div className="flex gap-[3px] items-center py-1 px-0.5">
+                <span className="w-[2.5px] h-3.5 bg-indigo-600 rounded-full animate-pulse"></span>
+                <span className="w-[2.5px] h-3.5 bg-indigo-600 rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></span>
+                <span className="w-[2.5px] h-3.5 bg-indigo-600 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></span>
+              </div>
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
+
+        </nav>
+
+        {/* Dropdown "More Menu" Panel */}
+        {isOpen && (
+          <div className="bg-white/95 backdrop-blur-lg border border-slate-200/60 shadow-2xl rounded-[32px] p-6 mt-3 flex flex-col gap-4 animate-in slide-in-from-top-4 duration-300">
+            
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-black text-slate-400 tracking-wider">
+                MORE MENU
+              </span>
+              <span className="text-[10px] font-bold text-slate-350 flex items-center gap-1">
+                Swipe &rarr;
+              </span>
+            </div>
+
+            {/* Horizontal Scroll Menu List */}
+            <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar scroll-smooth">
+              {moreMenuItems.map((item, idx) => {
+                const Icon = item.icon;
+                const isItemActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={idx}
+                    to={item.path}
+                    className={`flex flex-col items-center justify-center text-center p-3 rounded-2xl min-w-[95px] transition-all duration-300 hover:scale-102 ${
+                      isItemActive
+                        ? 'bg-indigo-50/50 border border-indigo-100/60'
+                        : 'border border-transparent hover:bg-slate-50'
+                    }`}
+                  >
+                    {/* Rounded Icon container */}
+                    <div className="w-12 h-12 rounded-full bg-indigo-50/70 border border-indigo-100/50 flex items-center justify-center text-indigo-600 mb-2">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    {/* Labels */}
+                    <span className="text-xs font-bold text-slate-800 leading-tight">
+                      {item.label}
+                    </span>
+                    <span className="text-[9px] text-slate-400 mt-0.5 leading-none">
+                      {item.desc}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+
+          </div>
+        )}
+
+      </div>
+    </>
   );
 }
