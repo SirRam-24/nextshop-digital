@@ -46,7 +46,7 @@ export default function About() {
         {/* Header Hero Section */}
         <div className="space-y-6 max-w-3xl mx-auto flex flex-col items-center">
           <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            About <span className="text-indigo-605 font-black">HMI Digital</span>
+            About <span className="text-indigo-650 font-black">Nextshop</span>
           </h2>
           <p className="text-slate-600 font-light text-base md:text-lg leading-relaxed max-w-2xl">
             We're not a DIY website builder. We're a team of expert engineers who build your website for you.
@@ -94,39 +94,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Meet Our Leadership Section */}
-        <div className="mt-24 space-y-8 flex flex-col items-center">
-          <h3 className="text-xl font-extrabold text-slate-850 tracking-tight">
-            Meet Our Leadership
-          </h3>
 
-          <div className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-white/80 backdrop-blur-md border border-slate-200/60 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 max-w-sm w-full text-left">
-            <img
-              src="/thiru.jpg"
-              alt="Manya Phalke"
-              className="w-20 h-20 rounded-full object-cover border-2 border-indigo-100/80 shadow-sm"
-            />
-            <div className="space-y-2 text-center sm:text-left">
-              <div className="space-y-0.5">
-                <h4 className="text-base font-bold text-slate-850 tracking-tight leading-tight">
-                  K. Thirulingeshwar
-                </h4>
-                <span className="text-xs text-indigo-600 font-semibold block leading-tight">
-                  CEO & Founder and Business Development Executive
-                </span>
-              </div>
-              <a
-                href="https://www.linkedin.com/in/thiru-lingeshwar-0b7371282/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4.5 py-1.5 bg-indigo-50/50 hover:bg-indigo-100/80 text-indigo-605 text-xs font-bold rounded-full transition-colors mt-1 border border-indigo-100/60"
-              >
-                <Linkedin className="w-3.5 h-3.5 fill-indigo-600 stroke-none" />
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
 
         {/* Our Values Section */}
         <div className="mt-24 space-y-12">

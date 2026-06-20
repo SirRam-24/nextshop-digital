@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Send, Github, Linkedin, Twitter, Mail } from 'lucide-react';
-import HMILogo from './HMILogo';
+import NextshopLogo from './NextshopLogo';
 
 export default function Footer() {
   const [newsEmail, setNewsEmail] = useState('');
@@ -19,12 +19,15 @@ export default function Footer() {
   const navLinks = [
     { label: 'HOME', path: '/' },
     { label: 'SERVICES', path: '/services' },
-    { label: 'PORTFOLIO', path: '/portfolio' }
+    { label: 'PORTFOLIO', path: '/portfolio' },
+    { label: 'PRICING', path: '/pricing' },
+    { label: 'CUSTOM APP', path: '/custom-app' }
   ];
 
   const resourceLinks = [
     { label: 'ABOUT', path: '/about' },
-    { label: 'CONTACT', path: '/contact' }
+    { label: 'CONTACT', path: '/contact' },
+    { label: 'TERMS', path: '/terms' }
   ];
 
   return (
@@ -34,9 +37,9 @@ export default function Footer() {
         {/* Branding column */}
         <div className="md:col-span-4 space-y-6">
           <Link to="/" className="flex items-center gap-2 cursor-pointer">
-            <HMILogo className="w-8 h-8 hover:scale-105 transition-transform duration-300" />
+            <NextshopLogo className="w-8 h-8 hover:scale-105 transition-transform duration-300" />
             <span className="text-lg font-bold tracking-tight text-slate-800 flex items-center">
-              HMI <span className="text-indigo-650 font-extrabold ml-1">Digital</span>
+              Nextshop
             </span>
           </Link>
           
@@ -83,7 +86,7 @@ export default function Footer() {
             <a href="#" className="p-2 rounded-lg bg-slate-50 border border-slate-200/60 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
               <Twitter className="w-4 h-4" />
             </a>
-            <a href="mailto:hello@hmi.digital" className="p-2 rounded-lg bg-slate-50 border border-slate-200/60 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
+            <a href="mailto:hello@nextshop.com" className="p-2 rounded-lg bg-slate-50 border border-slate-200/60 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
               <Mail className="w-4 h-4" />
             </a>
           </div>
@@ -165,7 +168,7 @@ export default function Footer() {
       {/* Copyright line */}
       <div className="max-w-7xl mx-auto px-6 pt-8 mt-12 border-t border-slate-100 text-center text-[10px] font-medium text-slate-450 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="space-y-1 text-left">
-          <span>&copy; {new Date().getFullYear()} HMI Digital Solutions. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Nextshop Solutions. All rights reserved.</span>
           <span className="block text-[9px] text-purple-600 font-bold uppercase tracking-wider">MSME Registered Business</span>
         </div>
         

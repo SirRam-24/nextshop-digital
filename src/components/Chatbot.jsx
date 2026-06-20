@@ -40,17 +40,17 @@ export default function Chatbot() {
 
     // Trigger bot response
     setTimeout(() => {
-      let botResponse = "That sounds interesting! HMI specializes in custom React web apps and high-performance websites. Would you like to check out our cost estimator or talk to a consultant?";
+      let botResponse = "That sounds interesting! Nextshop specializes in custom React web apps and high-performance websites. Would you like to check out our plans or talk to a consultant?";
       
       const lowerQuery = query.toLowerCase();
       if (lowerQuery.includes('plan') || lowerQuery.includes('pricing') || lowerQuery.includes('price')) {
-        botResponse = "We offer custom-tailored pricing packages for every project! You can check our Cost Estimator tool to calculate project pricing or reach out to us on our Contact page to get a direct quote.";
+        botResponse = "We offer custom-tailored pricing packages for every project! You can check our Pricing page to calculate project pricing or reach out to us on our Contact page to get a direct quote.";
       } else if (lowerQuery.includes('demo') || lowerQuery.includes('free') || lowerQuery.includes('try')) {
         botResponse = "Excellent choice! I can set up a free custom design mockup for your business today. Please fill out our form on the Contact page, or leave your email here, and our design consultant will get in touch!";
       } else if (lowerQuery.includes('24h') || lowerQuery.includes('delivery') || lowerQuery.includes('guarantee') || lowerQuery.includes('time')) {
         botResponse = "Yes! We guarantee same-day delivery for standard websites. Using pre-optimized templates and AI-powered development, we can launch your site within 24 hours of receiving your assets.";
       } else if (lowerQuery.includes('contact') || lowerQuery.includes('call') || lowerQuery.includes('chat')) {
-        botResponse = "You can fill out the contact form on our Contact page or directly reach us at hello@hmi.digital. We would love to chat!";
+        botResponse = "You can fill out the contact form on our Contact page or directly reach us at hello@nextshop.com. We would love to chat!";
       }
 
       setChatMessages(prev => [...prev, { sender: 'bot', text: botResponse }]);
@@ -78,7 +78,7 @@ export default function Chatbot() {
               </div>
               <div className="text-left">
                 <span className="block text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                  HMI Helper
+                  Nextshop Helper
                   <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
                 </span>
                 <span className="block text-[10px] text-slate-400 font-light">AI Website Consultant</span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import WhyChooseHMI from '../components/WhyChooseHMI';
+import WhyChooseNextshop from '../components/WhyChooseNextshop';
 import HowItWorks from '../components/HowItWorks';
 import ReadyToBuild from '../components/ReadyToBuild';
 
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <WhyChooseHMI />
+      <WhyChooseNextshop />
       <HowItWorks />
       <ReadyToBuild />
     </>

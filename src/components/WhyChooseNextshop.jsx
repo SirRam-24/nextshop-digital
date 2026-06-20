@@ -2,7 +2,7 @@ import React from 'react';
 import { Zap, DollarSign, Cpu } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
-export default function WhyChooseHMI() {
+export default function WhyChooseNextshop() {
   const cards = [
     {
       icon: Zap,
@@ -35,7 +35,7 @@ export default function WhyChooseHMI() {
         <ScrollReveal>
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Why Choose <span className="text-gradient font-black">HMI Digital</span>?
+              Why Choose <span className="text-gradient font-black">Nextshop</span>?
             </h2>
             <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base font-light">
               We build high-converting websites and modern custom web applications for less than any 
@@ -60,7 +60,7 @@ export default function WhyChooseHMI() {
                   {/* Premium Top Border */}
                   <div className={`absolute top-0 left-0 right-0 h-[3.5px] ${
                     card.highlight 
-                      ? 'bg-indigo-650' 
+                      ? 'bg-indigo-600' 
                       : 'bg-slate-200 group-hover/card:bg-indigo-500'
                   } transition-all duration-300`}></div>
 
@@ -91,7 +91,7 @@ export default function WhyChooseHMI() {
 
                     {/* Heading & description */}
                     <div className="space-y-3">
-                      <h3 className="text-lg font-bold text-slate-850 tracking-tight transition-colors group-hover/card:text-indigo-655">
+                      <h3 className="text-lg font-bold text-slate-850 tracking-tight transition-colors group-hover/card:text-indigo-650">
                         {card.title}
                       </h3>
                       <p className="text-slate-500 text-xs md:text-sm font-light leading-relaxed">

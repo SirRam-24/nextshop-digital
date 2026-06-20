@@ -19,7 +19,7 @@ export default function Contact() {
       setFormData(prev => ({
         ...prev,
         subject: `Inquiry regarding ${location.state.service}`,
-        message: `Hi HMI Team,\n\nI am interested in your "${location.state.service}" solutions. I would love to learn more about the design options, timeline, and custom features for our project.`
+        message: `Hi Nextshop Team,\n\nI am interested in your "${location.state.service}" solutions. I would love to learn more about the design options, timeline, and custom features for our project.`
       }));
     }
   }, [location.state]);
@@ -100,7 +100,7 @@ export default function Contact() {
               {/* Info Items */}
               <div className="space-y-6">
                 {[
-                  { icon: Mail, title: "Email Address", val: "hello@hmi.digital" },
+                  { icon: Mail, title: "Email Address", val: "hello@nextshop.com" },
                   { icon: Phone, title: "Phone Support", val: "+91 99999 99999" },
                   { icon: MapPin, title: "Office Hub", val: "Bengaluru, India" },
                   { icon: Clock, title: "Operational Hours", val: "Monday - Friday, 9am - 6pm" },

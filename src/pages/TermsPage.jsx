@@ -32,7 +32,7 @@ export default function TermsPage() {
             </h2>
             <div className="text-slate-600 font-light text-xs md:text-sm leading-relaxed space-y-3">
               <p>
-                By engaging HMI Digital Solutions ("HMI", "we", "us") or using our interactive cost calculators, you agree to comply with and be bound by the following terms and conditions.
+                By engaging Nextshop Solutions ("Nextshop", "we", "us") or using our interactive cost calculators, you agree to comply with and be bound by the following terms and conditions.
               </p>
               <p>
                 We construct custom software models, website configurations, and database endpoints based on client requirements. While we strive to meet all scheduled deadlines (including expedited 24-hour deliveries where explicitly scoped), delivery schedules are dependent on clients providing prompt feedback and operational assets.
@@ -51,7 +51,7 @@ export default function TermsPage() {
             </h2>
             <div className="text-slate-600 font-light text-xs md:text-sm leading-relaxed space-y-3">
               <p>
-                Your privacy is paramount to HMI. When you submit names, email addresses, or custom project configurations through our quotation forms, we process this information solely to generate design outlines and contact you regarding custom solutions.
+                Your privacy is paramount to Nextshop. When you submit names, email addresses, or custom project configurations through our quotation forms, we process this information solely to generate design outlines and contact you regarding custom solutions.
               </p>
               <p>
                 We do not sell, rent, or distribute client contact credentials or project configurations to third-party advertisers. All data collected is stored securely in encrypted databases.
@@ -70,7 +70,7 @@ export default function TermsPage() {
                 Upon completion of the final payment phase, ownership of the specific React code, static stylesheets, database setup records, and media configurations engineered for your business will be fully transferred to you.
               </p>
               <p>
-                HMI retains the right to use boilerplate design models, standard utility classes, and custom software libraries built prior to or during development for other business operations.
+                Nextshop retains the right to use boilerplate design models, standard utility classes, and custom software libraries built prior to or during development for other business operations.
               </p>
             </div>
           </div>

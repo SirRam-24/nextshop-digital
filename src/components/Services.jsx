@@ -416,7 +416,7 @@ export default function Services() {
                     {selectedService.title}
                   </h3>
                   <p className="text-[10px] text-indigo-500 uppercase font-extrabold tracking-widest mt-0.5">
-                    HMI Service Specs
+                    Nextshop Service Specs
                   </p>
                 </div>
               </div>
