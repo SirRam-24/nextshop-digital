@@ -26,20 +26,136 @@ export default function Chatbot() {
     }
   }, [chatOpen, chatMessages]);
 
-  const handleSendMessage = (textToSend) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
+
+  const handleSendMessage = async (textToSend) => {
     const query = textToSend || userInput;
-    if (!query.trim()) return;
+    if (!query.trim() || isLoading || isStreaming) return;
 
     // Add user message
-    const newMessages = [...chatMessages, { sender: 'user', text: query }];
-    setChatMessages(newMessages);
+    const updatedMessages = [...chatMessages, { sender: 'user', text: query }];
+    setChatMessages(updatedMessages);
     
     if (!textToSend) {
       setUserInput('');
     }
 
-    // Trigger bot response
-    setTimeout(() => {
+    setIsLoading(true);
+
+    try {
+      // Filter out initial welcome message and map message history to role format for the API
+      const formattedHistory = updatedMessages
+        .filter(msg => !msg.isInitial)
+        .map(msg => ({
+          role: msg.sender === 'user' ? 'user' : 'assistant',
+          content: msg.text
+        }));
+
+      const response = await fetch('https://nexa-api-drab.vercel.app/chat', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'CgTV5mooBjq6wHJGY3kvZ_tBouag2uf61xu0QyNIIV8',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          user_id: '69ff4406c4ecad33d8f619da',
+          messages: formattedHistory
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API response status: ${response.status}`);
+      }
+
+      setIsLoading(false);
+      setIsStreaming(true);
+
+      // Create an empty bot message that we will stream into
+      let streamedResponseText = '';
+      const updateBotMessage = (text) => {
+        setChatMessages(prev => {
+          const lastMsg = prev[prev.length - 1];
+          if (lastMsg && lastMsg.sender === 'bot' && !lastMsg.isInitial) {
+            return [...prev.slice(0, -1), { sender: 'bot', text }];
+          } else {
+            return [...prev, { sender: 'bot', text }];
+          }
+        });
+      };
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+      let done = false;
+      let buffer = '';
+
+      while (!done) {
+        const { value, done: readerDone } = await reader.read();
+        done = readerDone;
+        if (value) {
+          buffer += decoder.decode(value, { stream: !done });
+          
+          // Split buffer by newlines to get SSE data entries
+          const lines = buffer.split('\n');
+          buffer = lines.pop() || ''; // Keep partial line in buffer
+
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed) continue;
+            
+            let dataContent = trimmed;
+            if (trimmed.startsWith('data:')) {
+              dataContent = trimmed.substring(5).trim();
+            }
+
+            if (dataContent === '[DONE]') {
+              done = true;
+              break;
+            }
+
+            try {
+              // Try parsing chunk as JSON
+              const parsed = JSON.parse(dataContent);
+              const chunkText = parsed.choices?.[0]?.delta?.content || parsed.content || parsed.response || parsed.reply || parsed.text || '';
+              streamedResponseText += chunkText;
+              updateBotMessage(streamedResponseText);
+            } catch (e) {
+              // If parsing fails, chunk is likely raw text or partial data
+              // We only append if it's not starting with an indicator like "data:"
+              if (!dataContent.startsWith('data:')) {
+                streamedResponseText += dataContent;
+                updateBotMessage(streamedResponseText);
+              }
+            }
+          }
+        }
+      }
+
+      // Flush remaining buffer content
+      if (buffer.trim()) {
+        const trimmed = buffer.trim();
+        let dataContent = trimmed;
+        if (trimmed.startsWith('data:')) {
+          dataContent = trimmed.substring(5).trim();
+        }
+        if (dataContent !== '[DONE]') {
+          try {
+            const parsed = JSON.parse(dataContent);
+            const chunkText = parsed.choices?.[0]?.delta?.content || parsed.content || parsed.response || parsed.reply || parsed.text || '';
+            streamedResponseText += chunkText;
+            updateBotMessage(streamedResponseText);
+          } catch (e) {
+            streamedResponseText += dataContent;
+            updateBotMessage(streamedResponseText);
+          }
+        }
+      }
+
+    } catch (error) {
+      console.error('Chatbot API error:', error);
+      setIsLoading(false);
+      
+      // Fallback rule-based local answers
       let botResponse = "That sounds interesting! Nextshop specializes in custom React web apps and high-performance websites. Would you like to check out our plans or talk to a consultant?";
       
       const lowerQuery = query.toLowerCase();
@@ -54,7 +170,10 @@ export default function Chatbot() {
       }
 
       setChatMessages(prev => [...prev, { sender: 'bot', text: botResponse }]);
-    }, 1000);
+    } finally {
+      setIsLoading(false);
+      setIsStreaming(false);
+    }
   };
 
   const suggestionChips = [
@@ -128,7 +247,7 @@ export default function Chatbot() {
                       <div className="space-y-2 pt-1">
                         <button
                           onClick={() => handleSendMessage('Recommend Plan')}
-                          className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-full shadow-md shadow-indigo-100 hover:shadow-lg transition-all duration-300 text-xs"
+                          className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-750 text-white font-semibold py-3 px-4 rounded-full shadow-md shadow-indigo-100 hover:shadow-lg transition-all duration-300 text-xs"
                         >
                           <FileText className="w-4 h-4" />
                           <span>Recommend Plan</span>
@@ -146,6 +265,21 @@ export default function Chatbot() {
                 </div>
               );
             })}
+            
+            {/* Loading Typing Indicator Bubble */}
+            {isLoading && (
+              <div className="flex gap-2.5 justify-start">
+                <div className="w-7 h-7 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-650 flex-shrink-0">
+                  <Bot className="w-3.5 h-3.5 stroke-[1.5]" />
+                </div>
+                <div className="bg-white text-slate-700 rounded-[22px] rounded-tl-none border border-slate-100/60 px-4 py-3 shadow-sm flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                </div>
+              </div>
+            )}
+            
             <div ref={messagesEndRef} />
           </div>
 
