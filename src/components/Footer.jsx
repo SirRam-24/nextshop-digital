@@ -1,187 +1,161 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Send, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import NextshopLogo from './NextshopLogo';
 
 export default function Footer() {
-  const [newsEmail, setNewsEmail] = useState('');
-  const [subscribed, setSubsubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (!newsEmail.trim()) return;
-    setSubsubscribed(true);
-    setTimeout(() => {
-      setNewsEmail('');
-    }, 2000);
-  };
-
-  const navLinks = [
-    { label: 'HOME', path: '/' },
-    { label: 'SERVICES', path: '/services' },
-    { label: 'PORTFOLIO', path: '/portfolio' },
-    { label: 'PRICING', path: '/pricing' },
-    { label: 'CUSTOM APP', path: '/custom-app' }
+  const serviceLinks = [
+    { label: 'Landing Pages', path: '/services' },
+    { label: 'E-commerce Sites', path: '/services' },
+    { label: 'Corporate Websites', path: '/services' },
+    { label: 'Custom Web Apps', path: '/custom-app' },
+    { label: 'SEO Optimization', path: '/services' },
   ];
 
-  const resourceLinks = [
-    { label: 'ABOUT', path: '/about' },
-    { label: 'CONTACT', path: '/contact' },
-    { label: 'TERMS', path: '/terms' }
+  const companyLinks = [
+    { label: 'About Us', path: '/about' },
+    { label: 'Work / Portfolio', path: '/portfolio' },
+    { label: 'Pricing Plans', path: '/pricing' },
+    { label: 'Careers', path: '/about' },
+  ];
+
+  const featureLinks = [
+    { label: 'AI-Powered Builder', path: '/' },
+    { label: 'Custom Integrations', path: '/custom-app' },
+    { label: 'Same-Day Delivery', path: '/pricing' },
+    { label: 'Live Chat Support', path: '/contact' },
+  ];
+
+  const legalLinks = [
+    { label: 'Privacy Policy', path: '/terms' },
+    { label: 'Terms of Service', path: '/terms' },
+    { label: 'Cookie Settings', path: '#' },
+    { label: 'Contact Us', path: '/contact' },
   ];
 
   return (
-    <footer className="bg-white text-slate-500 py-16 border-t border-slate-100 text-left">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-        
-        {/* Branding column */}
-        <div className="md:col-span-4 space-y-6">
-          <Link to="/" className="flex items-center gap-2 cursor-pointer">
-            <NextshopLogo className="w-8 h-8 hover:scale-105 transition-transform duration-300" />
-            <span className="text-lg font-bold tracking-tight text-slate-800 flex items-center">
-              Nextshop
-            </span>
-          </Link>
-          
-          <p className="text-xs font-light text-slate-550 leading-relaxed max-w-sm">
-            High-converting websites delivered same day, cheaper than any traditional web design provider. Our engineers handle everything using cutting-edge AI technology.
-          </p>
-
-          <div className="space-y-3">
-            <Link 
-              to="/contact" 
-              className="inline-block text-xs font-bold text-indigo-600 hover:text-indigo-750 transition-colors"
-            >
-              Talk to Website Consultant &rarr;
-            </Link>
-
-            <div>
-              {/* Trustpilot Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 shadow-sm">
-                <span className="text-emerald-600 font-extrabold flex items-center gap-0.5">
-                  <svg className="w-3.5 h-3.5 fill-current text-emerald-500" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                  Trustpilot
-                </span>
-                <div className="flex items-center gap-0.5 text-white bg-emerald-500 rounded p-0.5 scale-90">
-                  <span className="w-2.5 h-2.5 text-[7px] font-bold flex items-center justify-center">★</span>
-                  <span className="w-2.5 h-2.5 text-[7px] font-bold flex items-center justify-center">★</span>
-                  <span className="w-2.5 h-2.5 text-[7px] font-bold flex items-center justify-center">★</span>
-                  <span className="w-2.5 h-2.5 text-[7px] font-bold flex items-center justify-center">★</span>
-                  <span className="w-2.5 h-2.5 text-[7px] font-bold flex items-center justify-center text-emerald-250">★</span>
-                </div>
-                <span className="text-slate-450 font-bold font-mono text-[10px]">4.2</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 pt-2">
-            <a href="#" className="p-2 rounded-lg bg-slate-50 border border-slate-200/60 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
-              <Github className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2 rounded-lg bg-slate-50 border border-slate-200/60 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2 rounded-lg bg-slate-50 border border-slate-200/60 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
-              <Twitter className="w-4 h-4" />
-            </a>
-            <a href="mailto:hello@nextshop.com" className="p-2 rounded-lg bg-slate-50 border border-slate-200/60 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
-              <Mail className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-
-        {/* Quick Links Column */}
-        <div className="md:col-span-2 space-y-4">
-          <span className="text-xs font-bold text-slate-850 uppercase tracking-widest block">
-            Navigation
-          </span>
-          <ul className="space-y-2.5 text-xs">
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link 
-                  to={link.path} 
-                  className="text-slate-550 hover:text-indigo-650 transition-colors font-medium"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Platform Column */}
-        <div className="md:col-span-2 space-y-4">
-          <span className="text-xs font-bold text-slate-850 uppercase tracking-widest block">
-            Resources
-          </span>
-          <ul className="space-y-2.5 text-xs">
-            {resourceLinks.map((link) => (
-              <li key={link.path}>
-                <Link 
-                  to={link.path} 
-                  className="text-slate-550 hover:text-indigo-650 transition-colors font-medium"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Newsletter Column */}
-        <div className="md:col-span-4 space-y-4">
-          <span className="text-xs font-bold text-slate-850 uppercase tracking-widest block">
-            Newsletter Sign-up
-          </span>
-          <p className="text-xs font-light text-slate-550 leading-relaxed">
-            Subscribe to receive our latest insights on modern web development stacks, SEO, and business web optimization techniques.
-          </p>
-          
-          {subscribed ? (
-            <div className="text-xs text-emerald-600 font-bold bg-emerald-500/10 border border-emerald-500/20 px-4 py-3.5 rounded-xl text-center">
-              Successfully Subscribed!
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <input 
-                type="email" 
-                required
-                placeholder="you@email.com" 
-                value={newsEmail}
-                onChange={(e) => setNewsEmail(e.target.value)}
-                className="bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-3.5 text-xs w-full text-slate-800 placeholder-slate-400 shadow-sm transition-colors"
-              />
-              <button 
-                type="submit"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-xl shadow-md transition-colors"
+    <footer className="bg-[#0b0b0c] text-[#9b9c9e] py-16 px-6 md:px-12 lg:px-24 font-sans text-left">
+      <div className="max-w-7xl mx-auto">
+        {/* Top Section: CTA + Links */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pb-16">
+          {/* Left Column: CTA */}
+          <div className="lg:col-span-5 flex flex-col items-start justify-between">
+            <div className="space-y-6">
+              <h2 className="text-white text-3xl md:text-4xl font-normal tracking-tight leading-tight max-w-md">
+                Start exploring and building with Nextshop's latest web technologies.
+              </h2>
+              <Link
+                to="/contact"
+                className="inline-block bg-white text-black hover:bg-zinc-200 transition-all font-semibold py-3 px-6 rounded-full text-sm shadow-sm"
               >
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
-          )}
+                Sign up and get started
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: 4 Columns of Links */}
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
+            {/* Services */}
+            <div>
+              <h3 className="text-white text-sm font-medium tracking-wide mb-4">Services</h3>
+              <ul className="space-y-3">
+                {serviceLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      to={link.path}
+                      className="hover:text-white transition-colors text-xs font-normal"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h3 className="text-white text-sm font-medium tracking-wide mb-4">Company</h3>
+              <ul className="space-y-3">
+                {companyLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      to={link.path}
+                      className="hover:text-white transition-colors text-xs font-normal"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Features */}
+            <div>
+              <h3 className="text-white text-sm font-medium tracking-wide mb-4">Features</h3>
+              <ul className="space-y-3">
+                {featureLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      to={link.path}
+                      className="hover:text-white transition-colors text-xs font-normal"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Information */}
+            <div>
+              <h3 className="text-white text-sm font-medium tracking-wide mb-4">Information</h3>
+              <ul className="space-y-3">
+                {legalLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      to={link.path}
+                      className="hover:text-white transition-colors text-xs font-normal"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
-      </div>
-
-      {/* Copyright line */}
-      <div className="max-w-7xl mx-auto px-6 pt-8 mt-12 border-t border-slate-100 text-center text-[10px] font-medium text-slate-450 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div className="space-y-1 text-left">
-          <span>&copy; {new Date().getFullYear()} Nextshop Solutions. All rights reserved.</span>
-          <span className="block text-[9px] text-purple-600 font-bold uppercase tracking-wider">MSME Registered Business</span>
+        {/* Bottom Section: Giant Logo Banner */}
+        <div className="border-t border-zinc-800/60 pt-8 pb-4 flex items-center justify-start gap-4">
+          <NextshopLogo className="w-[10vw] h-[10vw] md:w-[8vw] md:h-[8vw] lg:w-[7.5vw] lg:h-[7.5vw] xl:w-20 xl:h-20 min-w-[40px] min-h-[40px] hover:scale-105 transition-transform duration-300" />
+          <span className="text-[10vw] md:text-[8vw] lg:text-[7.5vw] xl:text-[90px] font-semibold tracking-tighter text-white select-none leading-none">
+            Nextshop
+          </span>
         </div>
-        
-        <div className="flex flex-col sm:flex-row items-center gap-6">
-          <span className="text-[10px] font-light text-slate-400">Built with AI-powered engineering</span>
-          <div className="flex gap-6">
-            <Link to="/terms" className="hover:text-indigo-650">Terms of Service</Link>
-            <Link to="/terms" className="hover:text-indigo-650">Privacy Policy</Link>
-            <a href="#" className="hover:text-indigo-650">Cookie Settings</a>
+
+        {/* Copyright, Socials & Legal Strip */}
+        <div className="border-t border-zinc-800/40 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-zinc-500 font-light">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <span>&copy; {new Date().getFullYear()} Nextshop Solutions. All rights reserved.</span>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.instagram.com/nextshop.online_builders?igsh=YThsOGp6czR3cXJ6" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Instagram" 
+                className="text-zinc-500 hover:text-white transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+            <span className="text-zinc-700">|</span>
+            <span className="font-normal text-zinc-600">Built with AI-powered engineering</span>
           </div>
         </div>
       </div>
-
     </footer>
   );
 }
