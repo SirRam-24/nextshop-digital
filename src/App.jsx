@@ -17,7 +17,7 @@ import CustomAppPage from './pages/CustomAppPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-50/70 text-slate-800 selection:bg-indigo-600 selection:text-white">
+    <div className="min-h-screen bg-[#0b0b0c] text-zinc-100 selection:bg-indigo-600 selection:text-white">
       <ScrollToTop />
 
       {/* Centered Floating Header Glassmorphic Menu */}

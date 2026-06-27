@@ -63,13 +63,13 @@ export default function Navbar() {
       <div className="hidden xl:block fixed top-6 left-0 w-full z-50 px-6 transition-all duration-300">
         <nav className={`max-w-7xl mx-auto rounded-full px-8 flex items-center justify-between transition-all duration-300 ${scrolled
             ? 'glass-nav shadow-xl py-3.5'
-            : 'bg-white/35 border border-slate-200/20 py-5 shadow-none backdrop-blur-[2px]'
+            : 'bg-[#0f0f11]/35 border border-zinc-800/20 py-5 shadow-none backdrop-blur-[2px]'
           }`}>
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 cursor-pointer">
             <NextshopLogo className="w-12 h-12 hover:scale-105 transition-transform duration-300" />
-            <span className="text-2xl font-black tracking-tight text-slate-800 flex items-center">
+            <span className="text-2xl font-black tracking-tight text-white flex items-center">
               Nextshop
             </span>
           </Link>
@@ -84,8 +84,8 @@ export default function Navbar() {
                   to={item.path}
                   className={({ isActive }) =>
                     `flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${isActive
-                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100'
-                      : 'text-slate-650 hover:text-indigo-650 hover:bg-indigo-50/50'
+                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                      : 'text-zinc-400 hover:text-white hover:bg-zinc-800/40'
                     }`
                   }
                 >
@@ -104,7 +104,7 @@ export default function Navbar() {
       <div className="xl:hidden fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-md z-50 transition-all duration-300">
         
         {/* Navigation Bar Pill */}
-        <nav className="bg-white/90 backdrop-blur-lg border border-slate-200/60 shadow-xl rounded-full py-2 px-3 flex items-center justify-between">
+        <nav className="bg-[#0b0b0c]/90 backdrop-blur-lg border border-zinc-800/60 shadow-xl rounded-full py-2 px-3 flex items-center justify-between">
           
           {/* Home Tab */}
           <NavLink
@@ -112,8 +112,8 @@ export default function Navbar() {
             className={({ isActive }) =>
               `flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${
                 isActive
-                  ? 'bg-indigo-50/80 border border-indigo-200/50 text-indigo-650 shadow-sm'
-                  : 'text-slate-650 hover:text-indigo-650'
+                  ? 'bg-indigo-950/40 border border-indigo-900/60 text-indigo-400 shadow-sm'
+                  : 'text-zinc-400 hover:text-white'
               }`
             }
           >
@@ -127,8 +127,8 @@ export default function Navbar() {
             className={({ isActive }) =>
               `flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${
                 isActive
-                  ? 'bg-indigo-50/80 border border-indigo-200/50 text-indigo-650 shadow-sm'
-                  : 'text-slate-650 hover:text-indigo-650'
+                  ? 'bg-indigo-950/40 border border-indigo-900/60 text-indigo-400 shadow-sm'
+                  : 'text-zinc-400 hover:text-white'
               }`
             }
           >
@@ -142,8 +142,8 @@ export default function Navbar() {
             className={({ isActive }) =>
               `flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold tracking-wider transition-all duration-300 ${
                 isActive
-                  ? 'bg-indigo-50/80 border border-indigo-200/50 text-indigo-650 shadow-sm'
-                  : 'text-slate-650 hover:text-indigo-650'
+                  ? 'bg-indigo-950/40 border border-indigo-900/60 text-indigo-400 shadow-sm'
+                  : 'text-zinc-400 hover:text-white'
               }`
             }
           >
@@ -154,16 +154,16 @@ export default function Navbar() {
           {/* More Menu Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-2 rounded-full transition-all duration-300 hover:bg-slate-100 flex items-center justify-center ${
-              isOpen ? 'bg-indigo-50 border border-indigo-100 text-indigo-600 scale-105' : 'text-slate-700'
+            className={`p-2 rounded-full transition-all duration-300 hover:bg-zinc-850 flex items-center justify-center ${
+              isOpen ? 'bg-indigo-950/50 border border-indigo-900/65 text-indigo-400 scale-105' : 'text-zinc-400'
             }`}
           >
             {isOpen ? (
               /* Custom dynamic matching dynamic ||| icon */
               <div className="flex gap-[3px] items-center py-1 px-0.5">
-                <span className="w-[2.5px] h-3.5 bg-indigo-600 rounded-full animate-pulse"></span>
-                <span className="w-[2.5px] h-3.5 bg-indigo-600 rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></span>
-                <span className="w-[2.5px] h-3.5 bg-indigo-600 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></span>
+                <span className="w-[2.5px] h-3.5 bg-indigo-400 rounded-full animate-pulse"></span>
+                <span className="w-[2.5px] h-3.5 bg-indigo-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></span>
+                <span className="w-[2.5px] h-3.5 bg-indigo-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></span>
               </div>
             ) : (
               <Menu className="w-5 h-5" />
@@ -174,14 +174,14 @@ export default function Navbar() {
 
         {/* Dropdown "More Menu" Panel */}
         {isOpen && (
-          <div className="bg-white/95 backdrop-blur-lg border border-slate-200/60 shadow-2xl rounded-[32px] p-6 mt-3 flex flex-col gap-4 animate-in slide-in-from-top-4 duration-300">
+          <div className="bg-[#0b0b0c]/95 backdrop-blur-lg border border-zinc-800/60 shadow-2xl rounded-[32px] p-6 mt-3 flex flex-col gap-4 animate-in slide-in-from-top-4 duration-300">
             
             {/* Header */}
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-black text-slate-400 tracking-wider">
+              <span className="text-[10px] font-black text-zinc-500 tracking-wider">
                 MORE MENU
               </span>
-              <span className="text-[10px] font-bold text-slate-350 flex items-center gap-1">
+              <span className="text-[10px] font-bold text-zinc-600 flex items-center gap-1">
                 Swipe &rarr;
               </span>
             </div>
@@ -197,19 +197,19 @@ export default function Navbar() {
                     to={item.path}
                     className={`flex flex-col items-center justify-center text-center p-3 rounded-2xl min-w-[95px] transition-all duration-300 hover:scale-102 ${
                       isItemActive
-                        ? 'bg-indigo-50/50 border border-indigo-100/60'
-                        : 'border border-transparent hover:bg-slate-50'
+                        ? 'bg-indigo-950/40 border border-indigo-900/60 text-indigo-400'
+                        : 'border border-transparent hover:bg-zinc-850'
                     }`}
                   >
                     {/* Rounded Icon container */}
-                    <div className="w-12 h-12 rounded-full bg-indigo-50/70 border border-indigo-100/50 flex items-center justify-center text-indigo-600 mb-2">
+                    <div className="w-12 h-12 rounded-full bg-indigo-950/60 border border-indigo-900/40 flex items-center justify-center text-indigo-450 mb-2">
                       <Icon className="w-5 h-5" />
                     </div>
                     {/* Labels */}
-                    <span className="text-xs font-bold text-slate-800 leading-tight">
+                    <span className="text-xs font-bold text-zinc-200 leading-tight">
                       {item.label}
                     </span>
-                    <span className="text-[9px] text-slate-400 mt-0.5 leading-none">
+                    <span className="text-[9px] text-zinc-500 mt-0.5 leading-none">
                       {item.desc}
                     </span>
                   </Link>

@@ -25,19 +25,19 @@ export default function WhyChooseNextshop() {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-slate-50/30">
+    <section className="py-24 relative overflow-hidden bg-transparent">
       {/* Background accents */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-indigo-100/30 blur-3xl -z-10 animate-pulse-slow"></div>
-      <div className="absolute top-1/3 right-10 w-96 h-96 rounded-full bg-purple-100/20 blur-3xl -z-10"></div>
+      <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-indigo-500/5 blur-3xl -z-10 animate-pulse-slow"></div>
+      <div className="absolute top-1/3 right-10 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
               Why Choose <span className="text-gradient font-black">Nextshop</span>?
             </h2>
-            <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base font-light">
+            <p className="text-zinc-400 max-w-2xl mx-auto text-sm md:text-base font-light">
               We build high-converting websites and modern custom web applications for less than any 
               traditional web design provider, powered by AI and expert engineering.
             </p>
@@ -53,15 +53,15 @@ export default function WhyChooseNextshop() {
                 <div
                   className={`relative rounded-3xl p-8 pt-10 transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between text-left h-full group/card overflow-hidden ${
                     card.highlight
-                      ? 'border-2 border-indigo-600/30 bg-white ring-4 ring-indigo-600/5 shadow-2xl shadow-indigo-100/50'
-                      : 'border border-slate-200/60 bg-white/50 backdrop-blur-md hover:bg-white/80 hover:shadow-lg'
+                      ? 'border border-indigo-500/50 bg-[#121214] ring-4 ring-indigo-500/5 shadow-2xl shadow-indigo-900/10'
+                      : 'border border-zinc-800/80 bg-[#121214]/50 backdrop-blur-md hover:bg-[#121214]/90 hover:shadow-lg'
                   }`}
                 >
                   {/* Premium Top Border */}
                   <div className={`absolute top-0 left-0 right-0 h-[3.5px] ${
                     card.highlight 
                       ? 'bg-indigo-600' 
-                      : 'bg-slate-200 group-hover/card:bg-indigo-500'
+                      : 'bg-zinc-800 group-hover/card:bg-indigo-500'
                   } transition-all duration-300`}></div>
 
                   {/* Visual Glow overlay for highlight card */}
@@ -77,24 +77,24 @@ export default function WhyChooseNextshop() {
                     <div className="relative w-12 h-12">
                       <div className={`absolute inset-0 rounded-2xl transition-all duration-300 group-hover/card:rotate-6 group-hover/card:scale-105 border flex items-center justify-center z-10 ${
                         card.highlight
-                          ? 'bg-indigo-600 text-white border-indigo-650 shadow-md shadow-indigo-150'
-                          : 'bg-indigo-50 text-indigo-650 border-indigo-100/60'
+                          ? 'bg-indigo-600 text-white border-indigo-600 shadow-md'
+                          : 'bg-indigo-950/40 text-indigo-400 border-indigo-900/40'
                       }`}>
                         <Icon className="w-5 h-5" />
                       </div>
                       
                       {/* Accent outline container rotating oppositely */}
                       <div className={`absolute inset-0 rounded-2xl border transition-all duration-300 group-hover/card:-rotate-6 scale-95 opacity-50 ${
-                        card.highlight ? 'border-purple-400' : 'border-indigo-200'
+                        card.highlight ? 'border-purple-500/50' : 'border-indigo-900/50'
                       }`} style={{ transform: 'translate(4px, 4px)' }}></div>
                     </div>
 
                     {/* Heading & description */}
                     <div className="space-y-3">
-                      <h3 className="text-lg font-bold text-slate-850 tracking-tight transition-colors group-hover/card:text-indigo-650">
+                      <h3 className="text-lg font-bold text-white tracking-tight transition-colors group-hover/card:text-indigo-400">
                         {card.title}
                       </h3>
-                      <p className="text-slate-500 text-xs md:text-sm font-light leading-relaxed">
+                      <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed">
                         {card.description}
                       </p>
                     </div>

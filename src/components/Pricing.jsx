@@ -17,8 +17,8 @@ export default function Pricing() {
       ctaText: "LAUNCH MY SITE",
       subCtaText: "FAST TURNAROUND GUARANTEED",
       highlight: false,
-      badgeColor: "text-indigo-650 bg-indigo-50 border border-indigo-100",
-      btnStyle: "bg-indigo-50 hover:bg-indigo-100 text-indigo-750 font-bold",
+      badgeColor: "text-indigo-400 bg-indigo-950/40 border border-indigo-900/40",
+      btnStyle: "bg-zinc-900 hover:bg-zinc-800 text-indigo-400 border border-zinc-800 hover:border-zinc-700 font-bold",
       features: [
         "Professional Single Page",
         "24-Hour Speed Launch",
@@ -42,8 +42,8 @@ export default function Pricing() {
       ctaText: "BUILD MY WEBSITE",
       subCtaText: "FAST TURNAROUND GUARANTEED",
       highlight: true,
-      badgeColor: "text-indigo-650 bg-indigo-50 border border-indigo-100",
-      btnStyle: "bg-indigo-600 hover:bg-indigo-750 text-white font-bold shadow-md shadow-indigo-200",
+      badgeColor: "text-indigo-400 bg-indigo-950/40 border border-indigo-900/40",
+      btnStyle: "bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-md shadow-indigo-900/40",
       features: [
         "4-Page Professional Sales Machine",
         "Everything in Starter plan",
@@ -67,8 +67,8 @@ export default function Pricing() {
       ctaText: "GROW MY BUSINESS",
       subCtaText: "FAST TURNAROUND GUARANTEED",
       highlight: false,
-      badgeColor: "text-indigo-650 bg-indigo-50 border border-indigo-100",
-      btnStyle: "bg-indigo-50 hover:bg-indigo-100 text-indigo-750 font-bold",
+      badgeColor: "text-indigo-400 bg-indigo-950/40 border border-indigo-900/40",
+      btnStyle: "bg-zinc-900 hover:bg-zinc-800 text-indigo-400 border border-zinc-800 hover:border-zinc-700 font-bold",
       features: [
         "Up to 6 Professional Pages",
         "Everything in Business plan",
@@ -93,8 +93,8 @@ export default function Pricing() {
       ctaText: "START SELLING",
       subCtaText: "SCALABLE STORE",
       highlight: false,
-      badgeColor: "text-indigo-650 bg-indigo-50 border border-indigo-100",
-      btnStyle: "bg-indigo-50 hover:bg-indigo-100 text-indigo-750 font-bold",
+      badgeColor: "text-indigo-400 bg-indigo-950/40 border border-indigo-900/40",
+      btnStyle: "bg-zinc-900 hover:bg-zinc-800 text-indigo-400 border border-zinc-800 hover:border-zinc-700 font-bold",
       features: [
         "Multi-Page Store (20+ Product Pages)",
         "Everything in Growth plan",
@@ -113,28 +113,28 @@ export default function Pricing() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-indigo-50/10 via-purple-50/20 to-white min-h-screen">
+    <section className="py-24 relative overflow-hidden bg-transparent min-h-screen">
       {/* Background visual accents */}
-      <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-b from-purple-100/10 via-indigo-50/5 to-transparent -z-10 blur-3xl"></div>
-      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-purple-100/20 blur-3xl -z-10"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-indigo-100/15 blur-3xl -z-10"></div>
+      <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-b from-purple-500/5 via-indigo-500/5 to-transparent -z-10 blur-3xl"></div>
+      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl -z-10"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-indigo-500/5 blur-3xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
         {/* Header Block */}
         <div className="text-center space-y-6 max-w-4xl mx-auto mb-16">
           <ScrollReveal delay={50}>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-800 tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
               Simple, Transparent <span className="text-indigo-600">Pricing</span>
             </h1>
           </ScrollReveal>
           
           <ScrollReveal delay={150}>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full border border-indigo-600/30 text-indigo-650 bg-indigo-50/30 text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full border border-indigo-900/60 text-indigo-400 bg-indigo-950/40 text-xs font-semibold">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
                 One-time Payment
               </span>
-              <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full border border-indigo-600/30 text-indigo-650 bg-indigo-50/30 text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full border border-indigo-900/60 text-indigo-400 bg-indigo-950/40 text-xs font-semibold">
                 <Shield className="w-3.5 h-3.5" />
                 100% Ownership
               </span>
@@ -149,10 +149,10 @@ export default function Pricing() {
             return (
               <ScrollReveal key={idx} delay={idx * 100} className="h-full flex">
                 <div
-                  className={`w-full relative rounded-[32px] p-6 bg-white/90 border transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between text-left overflow-hidden ${
+                  className={`w-full relative rounded-[32px] p-6 bg-[#121214]/50 border transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between text-left overflow-hidden ${
                     plan.highlight
-                      ? 'border-indigo-600/40 ring-4 ring-indigo-600/5 shadow-2xl shadow-indigo-150'
-                      : 'border-slate-200/80 hover:border-indigo-200 hover:shadow-xl'
+                      ? 'border-indigo-500/50 ring-4 ring-indigo-500/5 shadow-2xl shadow-indigo-950/40'
+                      : 'border-zinc-800/80 hover:border-zinc-700/60 hover:shadow-xl'
                   }`}
                 >
                   
@@ -169,15 +169,15 @@ export default function Pricing() {
                   <div className={`space-y-6 flex-1 ${plan.topPill ? 'pt-8' : ''}`}>
                     {/* Header: Icon & Titles */}
                     <div className="space-y-4 pt-2">
-                      <div className="w-12 h-12 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm">
+                      <div className="w-12 h-12 rounded-full bg-indigo-950/40 border border-indigo-900/40 flex items-center justify-center text-indigo-400 shadow-sm">
                         <Icon className="w-5 h-5" />
                       </div>
                       
                       <div className="space-y-1">
-                        <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                        <h3 className="text-xl font-bold text-white tracking-tight">
                           {plan.title}
                         </h3>
-                        <p className="text-slate-500 text-xs font-light leading-relaxed">
+                        <p className="text-zinc-400 text-xs font-light leading-relaxed">
                           {plan.description}
                         </p>
                       </div>
@@ -191,15 +191,15 @@ export default function Pricing() {
                     </div>
 
                     {/* Price Block */}
-                    <div className="py-4 border-y border-slate-100/80 space-y-1.5">
-                      <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none">
+                    <div className="py-4 border-y border-zinc-800/60 space-y-1.5">
+                      <span className="block text-[9px] font-bold text-zinc-500 uppercase tracking-widest leading-none">
                         {plan.priceType}
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-3xl font-black text-slate-900 tracking-tight flex items-center">
+                        <span className="text-3xl font-black text-white tracking-tight flex items-center">
                           ₹ {plan.price}
                         </span>
-                        <button className="text-slate-400 hover:text-slate-650 transition-colors">
+                        <button className="text-zinc-500 hover:text-white transition-colors">
                           <HelpCircle className="w-4 h-4" />
                         </button>
                       </div>
@@ -209,8 +209,8 @@ export default function Pricing() {
                     <div className="pt-2">
                       <ul className="space-y-3.5">
                         {plan.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="flex gap-2.5 items-start text-xs text-slate-600 font-light leading-relaxed">
-                            <div className="w-4.5 h-4.5 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 flex-shrink-0 mt-0.5 shadow-sm">
+                          <li key={fIdx} className="flex gap-2.5 items-start text-xs text-zinc-400 font-light leading-relaxed">
+                            <div className="w-4.5 h-4.5 rounded-full bg-indigo-950/40 border border-indigo-900/40 flex items-center justify-center text-indigo-400 flex-shrink-0 mt-0.5 shadow-sm">
                               <Check className="w-3 h-3 stroke-[2.5]" />
                             </div>
                             <span>{feature}</span>
@@ -228,7 +228,7 @@ export default function Pricing() {
                     >
                       {plan.ctaText}
                     </button>
-                    <span className="block text-[8px] font-bold text-slate-450 tracking-widest uppercase text-center leading-none">
+                    <span className="block text-[8px] font-bold text-zinc-500 tracking-widest uppercase text-center leading-none">
                       {plan.subCtaText}
                     </span>
                   </div>

@@ -208,7 +208,7 @@ export default function Hero() {
             {/* Badges Row */}
             <div className="flex flex-wrap items-center justify-center gap-3">
               {/* AI-Powered Development Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/85 shadow-sm text-slate-800 text-[10px] font-bold uppercase tracking-wider hover:border-indigo-300 transition-colors">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-zinc-900/80 border border-zinc-800/80 shadow-sm text-zinc-300 text-[10px] font-bold uppercase tracking-wider hover:border-indigo-500/50 transition-colors">
                 <Sparkles className="w-3.5 h-3.5 text-indigo-650" />
                 <span>AI-Powered Engineering</span>
               </div>
@@ -218,11 +218,11 @@ export default function Hero() {
           <ScrollReveal delay={200} className="space-y-4">
             {/* Main Title */}
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight">
+              <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
                 AI-Powered Websites. <br />
                 <span className="text-gradient font-black">Delivered the Same Day.</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-650 max-w-2xl font-light leading-relaxed mx-auto">
+              <p className="text-lg md:text-xl text-zinc-400 max-w-2xl font-light leading-relaxed mx-auto">
                 We build high-converting websites and launch them the same day — cheaper than any 
                 traditional web design provider. Customized React apps and modern software solutions.
               </p>
@@ -235,7 +235,7 @@ export default function Hero() {
               <Link 
                 to="/contact"
                 state={{ service: "Custom Website Package" }}
-                className="group relative flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-8 rounded-full shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:shadow-indigo-300/60 hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                className="group relative flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-8 rounded-full hover:-translate-y-0.5 transition-all duration-300 text-sm"
               >
                 <span>Build My Website</span>
                 <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
@@ -243,7 +243,7 @@ export default function Hero() {
               
               <Link 
                 to="/services"
-                className="flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold py-4 px-8 rounded-full shadow-sm hover:shadow-md transition-all duration-300 text-sm"
+                className="flex items-center justify-center gap-2 bg-zinc-900/40 hover:bg-zinc-900/90 border border-zinc-800/85 text-zinc-300 font-semibold py-4 px-8 rounded-full transition-all duration-300 text-sm"
               >
                 <span>Explore Services</span>
               </Link>
@@ -252,28 +252,28 @@ export default function Hero() {
 
           <ScrollReveal delay={400} className="w-full max-w-3xl pt-8">
             {/* Stats Bar Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-100/80">
-              <div className="bg-white/50 backdrop-blur-md border border-slate-200/40 rounded-2xl p-4 shadow-sm hover:bg-white/80 transition-colors">
-                <span className="block text-2xl font-black text-slate-800 font-mono leading-none">24h</span>
-                <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1">Same-Day Delivery</span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-zinc-800/60">
+              <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/45 rounded-2xl p-4 shadow-sm hover:bg-zinc-900/70 transition-colors">
+                <span className="block text-2xl font-black text-white font-mono leading-none">24h</span>
+                <span className="block text-[10px] text-zinc-500 font-bold uppercase tracking-wider mt-1">Same-Day Delivery</span>
               </div>
-              <div className="bg-white/50 backdrop-blur-md border border-slate-200/40 rounded-2xl p-4 shadow-sm hover:bg-white/80 transition-colors">
-                <span className="block text-2xl font-black text-slate-800 font-mono leading-none">500+</span>
-                <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1">Projects Completed</span>
+              <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/45 rounded-2xl p-4 shadow-sm hover:bg-zinc-900/70 transition-colors">
+                <span className="block text-2xl font-black text-white font-mono leading-none">500+</span>
+                <span className="block text-[10px] text-zinc-500 font-bold uppercase tracking-wider mt-1">Projects Completed</span>
               </div>
-              <div className="bg-white/50 backdrop-blur-md border border-slate-200/40 rounded-2xl p-4 shadow-sm hover:bg-white/80 transition-colors">
-                <span className="block text-2xl font-black text-slate-800 font-mono leading-none">99%</span>
-                <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1">Success Rate</span>
+              <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/45 rounded-2xl p-4 shadow-sm hover:bg-zinc-900/70 transition-colors">
+                <span className="block text-2xl font-black text-white font-mono leading-none">99%</span>
+                <span className="block text-[10px] text-zinc-500 font-bold uppercase tracking-wider mt-1">Success Rate</span>
               </div>
-              <div className="bg-white/50 backdrop-blur-md border border-slate-200/40 rounded-2xl p-4 shadow-sm hover:bg-white/80 transition-colors flex flex-col justify-between min-h-[72px]">
+              <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/45 rounded-2xl p-4 shadow-sm hover:bg-zinc-900/70 transition-colors flex flex-col justify-between min-h-[72px]">
                 <div>
-                  <span className="block text-2xl font-black text-slate-800 font-mono leading-none">15+</span>
-                  <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1">Dedicated Experts</span>
+                  <span className="block text-2xl font-black text-white font-mono leading-none">15+</span>
+                  <span className="block text-[10px] text-zinc-500 font-bold uppercase tracking-wider mt-1">Dedicated Experts</span>
                 </div>
                 <div className="flex justify-center -space-x-1.5 mt-2">
-                  <div className="w-5 h-5 rounded-full border border-white bg-indigo-500 flex items-center justify-center text-[7px] text-white font-bold">A</div>
-                  <div className="w-5 h-5 rounded-full border border-white bg-purple-500 flex items-center justify-center text-[7px] text-white font-bold">B</div>
-                  <div className="w-5 h-5 rounded-full border border-white bg-pink-500 flex items-center justify-center text-[7px] text-white font-bold">C</div>
+                  <div className="w-5 h-5 rounded-full border border-zinc-800 bg-indigo-500 flex items-center justify-center text-[7px] text-white font-bold">A</div>
+                  <div className="w-5 h-5 rounded-full border border-zinc-800 bg-purple-500 flex items-center justify-center text-[7px] text-white font-bold">B</div>
+                  <div className="w-5 h-5 rounded-full border border-zinc-800 bg-pink-500 flex items-center justify-center text-[7px] text-white font-bold">C</div>
                 </div>
               </div>
             </div>

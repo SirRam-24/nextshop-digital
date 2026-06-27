@@ -93,21 +93,21 @@ export default function Calculator() {
     <section id="calculator" className="py-24 relative bg-grid-pattern overflow-hidden">
       
       {/* Background soft blur spots */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-purple-100/40 blur-3xl -z-10"></div>
-      <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-indigo-100/40 blur-3xl -z-10"></div>
+      <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-purple-500/5 blur-3xl -z-10"></div>
+      <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-indigo-500/5 blur-3xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Title */}
         <div className="text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 border border-purple-100/60 shadow-sm">
-            <CalcIcon className="w-3.5 h-3.5 text-purple-600" />
-            <span className="text-[10px] font-bold text-purple-700 tracking-wider uppercase">Interactive Builder</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-900/40 shadow-sm">
+            <CalcIcon className="w-3.5 h-3.5 text-purple-400" />
+            <span className="text-[10px] font-bold text-purple-400 tracking-wider uppercase">Interactive Builder</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
             App Cost & <span className="text-gradient font-black">Timeline Estimator</span>
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base font-light">
+          <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base font-light">
             Customize your project requirements below to see an instant delivery and price estimation.
           </p>
         </div>
@@ -116,11 +116,11 @@ export default function Calculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Controls Form - left */}
-          <div className="lg:col-span-7 space-y-8 bg-white/70 backdrop-blur-md border border-slate-200/50 rounded-3xl p-6 md:p-8 shadow-sm">
+          <div className="lg:col-span-7 space-y-8 bg-[#121214]/55 backdrop-blur-md border border-zinc-800/80 rounded-3xl p-6 md:p-8 shadow-sm">
             
             {/* 1. Project Platform */}
             <div className="space-y-4 text-left">
-              <label className="text-sm font-bold text-slate-800 uppercase tracking-wider block">
+              <label className="text-sm font-bold text-zinc-300 uppercase tracking-wider block">
                 1. Select Platform
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -135,8 +135,8 @@ export default function Calculator() {
                     onClick={() => setPlatform(plat.id)}
                     className={`py-3.5 px-4 rounded-2xl text-xs font-bold transition-all ${
                       platform === plat.id
-                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-150'
-                        : 'bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200/50'
+                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-900/40'
+                        : 'bg-zinc-900 hover:bg-zinc-850 text-zinc-400 border border-zinc-800/80'
                     }`}
                   >
                     {plat.label}
@@ -148,10 +148,10 @@ export default function Calculator() {
             {/* 2. Number of screens */}
             <div className="space-y-4 text-left">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-slate-800 uppercase tracking-wider block">
+                <label className="text-sm font-bold text-zinc-300 uppercase tracking-wider block">
                   2. Project Scale (Screens / Pages)
                 </label>
-                <span className="bg-indigo-50 text-indigo-600 font-extrabold px-3 py-1 rounded-lg text-sm">
+                <span className="bg-indigo-950/40 text-indigo-400 border border-indigo-900/40 font-extrabold px-3 py-1 rounded-lg text-sm">
                   {pages} {pages === 1 ? 'Page' : 'Pages'}
                 </span>
               </div>
@@ -163,7 +163,7 @@ export default function Calculator() {
                 onChange={(e) => setPages(parseInt(e.target.value))}
                 className="range range-indigo range-xs w-full accent-indigo-600 cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-slate-400 font-bold px-1">
+              <div className="flex justify-between text-[10px] text-zinc-550 font-bold px-1">
                 <span>1 Page</span>
                 <span>15 Pages</span>
                 <span>30 Pages</span>
@@ -172,7 +172,7 @@ export default function Calculator() {
 
             {/* 3. Core features */}
             <div className="space-y-4 text-left">
-              <label className="text-sm font-bold text-slate-800 uppercase tracking-wider block">
+              <label className="text-sm font-bold text-zinc-300 uppercase tracking-wider block">
                 3. Choose Core Features
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -190,12 +190,12 @@ export default function Calculator() {
                     onClick={() => toggleFeature(feat.id)}
                     className={`flex items-center justify-between p-4 rounded-2xl border text-xs font-bold text-left transition-all ${
                       features[feat.id]
-                        ? 'bg-purple-50/70 border-purple-300 text-purple-700 shadow-sm'
-                        : 'bg-slate-50 border-slate-200/50 text-slate-600 hover:bg-slate-100'
+                        ? 'bg-purple-950/30 border-purple-900/50 text-purple-400 shadow-sm'
+                        : 'bg-zinc-900 border-zinc-800/80 text-zinc-400 hover:bg-zinc-850'
                     }`}
                   >
                     <span>{feat.label}</span>
-                    <span className="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-mono text-slate-500">
+                    <span className="text-[10px] bg-zinc-950 border border-zinc-800 px-2 py-0.5 rounded-md font-mono text-zinc-400">
                       {feat.cost}
                     </span>
                   </button>
@@ -208,7 +208,7 @@ export default function Calculator() {
               
               {/* Design Complexity */}
               <div className="space-y-3">
-                <label className="text-sm font-bold text-slate-800 uppercase tracking-wider block">
+                <label className="text-sm font-bold text-zinc-300 uppercase tracking-wider block">
                   4. Design Tier
                 </label>
                 <div className="flex flex-col gap-2">
@@ -222,13 +222,13 @@ export default function Calculator() {
                       onClick={() => setComplexity(tier.id)}
                       className={`flex items-center justify-between p-3.5 rounded-2xl border cursor-pointer transition-all ${
                         complexity === tier.id
-                          ? 'border-indigo-600 bg-indigo-50/20 text-indigo-900 font-bold'
-                          : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100 text-slate-600'
+                          ? 'border-indigo-500/50 bg-indigo-950/30 text-indigo-400 font-bold'
+                          : 'border-zinc-800 bg-zinc-900/40 hover:bg-zinc-850 text-zinc-400'
                       }`}
                     >
                       <div>
                         <span className="block text-xs font-bold">{tier.label}</span>
-                        <span className="block text-[9px] text-slate-400 font-light">{tier.desc}</span>
+                        <span className="block text-[9px] text-zinc-550 font-light">{tier.desc}</span>
                       </div>
                       <input 
                         type="radio" 
@@ -244,7 +244,7 @@ export default function Calculator() {
 
               {/* Delivery Speed */}
               <div className="space-y-3">
-                <label className="text-sm font-bold text-slate-800 uppercase tracking-wider block">
+                <label className="text-sm font-bold text-zinc-300 uppercase tracking-wider block">
                   5. Project Timeline
                 </label>
                 <div className="flex flex-col gap-2">
@@ -258,13 +258,13 @@ export default function Calculator() {
                       onClick={() => setTimeline(time.id)}
                       className={`flex items-center justify-between p-3.5 rounded-2xl border cursor-pointer transition-all ${
                         timeline === time.id
-                          ? 'border-purple-600 bg-purple-50/20 text-purple-900 font-bold'
-                          : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100 text-slate-600'
+                          ? 'border-purple-500/50 bg-purple-950/30 text-purple-400 font-bold'
+                          : 'border-zinc-800 bg-zinc-900/40 hover:bg-zinc-850 text-zinc-400'
                       }`}
                     >
                       <div>
                         <span className="block text-xs font-bold">{time.label}</span>
-                        <span className="block text-[9px] text-slate-400 font-light">{time.desc}</span>
+                        <span className="block text-[9px] text-zinc-550 font-light">{time.desc}</span>
                       </div>
                       <input 
                         type="radio" 
@@ -284,7 +284,7 @@ export default function Calculator() {
 
           {/* Pricing Card & Lead Submit - right */}
           <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative overflow-hidden">
+            <div className="bg-zinc-900 text-white rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative overflow-hidden border border-zinc-800/80">
               {/* Background accent bubble */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-500/10 rounded-full blur-2xl -z-0"></div>
 
@@ -294,7 +294,7 @@ export default function Calculator() {
               </div>
 
               {/* Financial calculations review */}
-              <div className="border-t border-b border-slate-800 py-6 space-y-3 text-xs md:text-sm font-light text-left relative z-10 text-slate-300">
+              <div className="border-t border-b border-zinc-800 py-6 space-y-3 text-xs md:text-sm font-light text-left relative z-10 text-zinc-400">
                 <div className="flex justify-between">
                   <span>Platform Base ({platform.toUpperCase()})</span>
                   <span className="font-semibold text-white">
@@ -342,13 +342,13 @@ export default function Calculator() {
               {/* Calculations display results */}
               <div className="grid grid-cols-2 gap-4 py-2 relative z-10 text-left">
                 <div className="space-y-1">
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Price Estimate</span>
+                  <span className="text-[10px] text-zinc-550 uppercase tracking-wider block font-bold">Price Estimate</span>
                   <span className="text-3xl md:text-4xl font-extrabold text-indigo-400 block font-mono">
                     ${total.toLocaleString()}
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Delivery Time</span>
+                  <span className="text-[10px] text-zinc-550 uppercase tracking-wider block font-bold">Delivery Time</span>
                   <span className="text-2xl md:text-3xl font-extrabold text-white block">
                     {weeks} {weeks === 1 ? 'Week' : 'Weeks'}
                   </span>
@@ -356,20 +356,20 @@ export default function Calculator() {
               </div>
 
               {/* Lead captures form */}
-              <div className="relative z-10 pt-4 border-t border-slate-800 text-left">
+              <div className="relative z-10 pt-4 border-t border-zinc-800 text-left">
                 {submitted ? (
                   <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 p-6 rounded-2xl flex flex-col items-center justify-center text-center gap-3 animate-in fade-in duration-300">
                     <CheckCircle2 className="w-10 h-10 text-emerald-400 animate-bounce" />
                     <div>
                       <span className="block font-bold text-sm">Quote Plan Submitted!</span>
-                      <span className="block text-xs text-slate-400 font-light mt-1">
+                      <span className="block text-xs text-zinc-400 font-light mt-1">
                         Our engineering team will review this spec sheet and email you a customized proposal within 24 hours.
                       </span>
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSendQuote} className="space-y-4">
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="block text-[11px] font-bold text-zinc-500 uppercase tracking-wider">
                       Request Final Proposal
                     </span>
                     <div className="grid grid-cols-2 gap-3">
@@ -379,7 +379,7 @@ export default function Calculator() {
                         placeholder="Your Name"
                         value={contactName}
                         onChange={(e) => setContactName(e.target.value)}
-                        className="bg-slate-800/80 border border-slate-800 focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-3 text-xs w-full transition-colors text-white placeholder-slate-500"
+                        className="bg-zinc-950/80 border border-zinc-800 focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-3 text-xs w-full transition-colors text-white placeholder-zinc-650"
                       />
                       <input 
                         type="email" 
@@ -387,7 +387,7 @@ export default function Calculator() {
                         placeholder="Your Email"
                         value={contactEmail}
                         onChange={(e) => setContactEmail(e.target.value)}
-                        className="bg-slate-800/80 border border-slate-800 focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-3 text-xs w-full transition-colors text-white placeholder-slate-500"
+                        className="bg-zinc-950/80 border border-zinc-800 focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-3 text-xs w-full transition-colors text-white placeholder-zinc-650"
                       />
                     </div>
                     <textarea 
@@ -395,12 +395,12 @@ export default function Calculator() {
                       rows="2"
                       value={contactMessage}
                       onChange={(e) => setContactMessage(e.target.value)}
-                      className="bg-slate-800/80 border border-slate-800 focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-3 text-xs w-full resize-none transition-colors text-white placeholder-slate-500"
+                      className="bg-zinc-950/80 border border-zinc-800 focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-3 text-xs w-full resize-none transition-colors text-white placeholder-zinc-650"
                     ></textarea>
                     
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-750 text-white text-xs font-bold py-3.5 px-4 rounded-xl transition-all shadow-md shadow-indigo-100"
+                      className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-3.5 px-4 rounded-xl transition-all shadow-md shadow-indigo-900/40"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>Send Project Spec Sheet</span>

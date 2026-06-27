@@ -67,22 +67,22 @@ export default function Portfolio() {
     : projects.filter(p => p.category === activeTab);
 
   return (
-    <section id="portfolio" className="py-24 relative bg-white/40">
+    <section id="portfolio" className="py-24 relative bg-transparent">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Title */}
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
             Our Interactive <span className="text-gradient font-black">Case Studies</span>
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base font-light">
+          <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base font-light">
             Take a look at some of the industry-grade web systems and mobile interfaces we have designed and developed.
           </p>
         </div>
 
         {/* Filters Tabs Bar */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex flex-wrap items-center gap-1.5 p-1.5 bg-slate-100 rounded-full border border-slate-200/50 max-w-full overflow-x-auto">
+          <div className="inline-flex flex-wrap items-center gap-1.5 p-1.5 bg-zinc-900/60 rounded-full border border-zinc-800/80 max-w-full overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -92,8 +92,8 @@ export default function Portfolio() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
                     isActive
-                      ? 'bg-white text-indigo-600 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-800'
+                      ? 'bg-indigo-600 text-white shadow-sm'
+                      : 'text-zinc-400 hover:text-white'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -109,7 +109,7 @@ export default function Portfolio() {
           {filteredProjects.map((proj, idx) => (
             <div 
               key={idx}
-              className="group bg-white rounded-3xl overflow-hidden border border-slate-200/50 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col text-left"
+              className="group bg-zinc-900/40 rounded-3xl overflow-hidden border border-zinc-800/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col text-left hover:border-zinc-700/60"
             >
               
               {/* Card visual showcase panel */}
@@ -141,22 +141,22 @@ export default function Portfolio() {
               </div>
 
               {/* Title & info description */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-6 bg-white">
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-6 bg-transparent">
                 <div className="space-y-2">
-                  <h3 className="text-base font-bold text-slate-800 tracking-tight">
+                  <h3 className="text-base font-bold text-white tracking-tight">
                     {proj.title}
                   </h3>
-                  <p className="text-slate-500 text-xs md:text-sm font-light leading-relaxed">
+                  <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed">
                     {proj.description}
                   </p>
                 </div>
 
                 {/* Tech items badges */}
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-800/60">
                   {proj.tech.map((t, i) => (
                     <span 
                       key={i} 
-                      className="text-[9px] bg-slate-50 border border-slate-200 text-slate-500 px-2 py-0.5 rounded-md font-mono font-bold"
+                      className="text-[9px] bg-zinc-950/60 border border-zinc-800/80 text-zinc-400 px-2 py-0.5 rounded-md font-mono font-bold"
                     >
                       {t}
                     </span>
