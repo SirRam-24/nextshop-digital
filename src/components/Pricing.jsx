@@ -130,11 +130,11 @@ export default function Pricing() {
           
           <ScrollReveal delay={150}>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full border border-indigo-900/60 text-indigo-400 bg-indigo-950/40 text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-indigo-900/60 text-indigo-400 bg-indigo-950/40 text-xs font-semibold">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
                 One-time Payment
               </span>
-              <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full border border-indigo-900/60 text-indigo-400 bg-indigo-950/40 text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-indigo-900/60 text-indigo-400 bg-indigo-950/40 text-xs font-semibold">
                 <Shield className="w-3.5 h-3.5" />
                 100% Ownership
               </span>
@@ -224,7 +224,7 @@ export default function Pricing() {
                   <div className="pt-8 space-y-2 mt-6">
                     <button
                       onClick={() => handleSelectPlan(plan.title)}
-                      className={`w-full py-4.5 px-4 rounded-2xl text-xs tracking-wider transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 ${plan.btnStyle}`}
+                      className={`w-full py-4 px-8 rounded-2xl text-xs tracking-wider transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 ${plan.btnStyle}`}
                     >
                       {plan.ctaText}
                     </button>
